@@ -62,7 +62,8 @@ class Home extends StatelessWidget {
                     )),
                   ],
                 ),
-                FlightImageAsset()
+                FlightImageAsset(),
+                FlightBookButton()
               ],
             )));
   }
@@ -71,7 +72,7 @@ class Home extends StatelessWidget {
 class FlightImageAsset extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    AssetImage assetImage = AssetImage('1.webp');
+    AssetImage assetImage = AssetImage('images/1.webp');
     Image image = Image(
       image: assetImage,
       width: 250.0,
@@ -83,4 +84,37 @@ class FlightImageAsset extends StatelessWidget {
   }
 }
 
-// the image doesn't appear on the android
+class FlightBookButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: 30.0),
+      width: 250.0,
+      height: 50.0,
+      child: RaisedButton(
+          color: Colors.deepOrange,
+          child: Text(
+            "Book Your Flight",
+            style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.white,
+                fontFamily: 'Raleway',
+                fontWeight: FontWeight.w700),
+          ),
+          elevation: 6.0,
+          onPressed: () => bookFlight(context)),
+    );
+  }
+
+  void bookFlight(BuildContext context) {
+    var alertDialog = AlertDialog(
+      title: Text("Flight Booked Successfully"),
+      content: Text("Have a pleasant flight"),
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => alertDialog,
+    );
+  }
+}
