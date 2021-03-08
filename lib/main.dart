@@ -13,7 +13,7 @@ class MyFlutterApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('AppBar'),
         ),
-        body: FirstScreen();
+        body: FirstScreen(),
       ),
     );
   }
