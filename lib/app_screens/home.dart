@@ -61,8 +61,26 @@ class Home extends StatelessWidget {
                           color: Colors.white),
                     )),
                   ],
-                )
+                ),
+                FlightImageAsset()
               ],
             )));
   }
 }
+
+class FlightImageAsset extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    AssetImage assetImage = AssetImage('1.webp');
+    Image image = Image(
+      image: assetImage,
+      width: 250.0,
+      height: 250.0,
+    );
+    return Container(
+      child: image,
+    );
+  }
+}
+
+// the image doesn't appear on the android
